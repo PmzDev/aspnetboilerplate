@@ -15,7 +15,11 @@ namespace Abp.TestBase.Runtime.Session
             {
                 if (!_multiTenancy.IsEnabled)
                 {
-                    return 1;
+ 					if (_tenantId == null)
+					{
+					    return null;						
+					}
+                    else return 1;
                 }
                 
                 return _tenantId;
